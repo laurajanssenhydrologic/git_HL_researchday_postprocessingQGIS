@@ -21,16 +21,12 @@ html_table_str = ['<table border="1" cellpadding="5" cellspacing="0" style="widt
                         '<td>'+str(r['KGE'])+'</td>'+\
     '</tr></table>' for n, r in kpi.iterrows()]
 kpi['html_table'] = html_table_str
-#kpi["html_fig_path"] = '<img src="file:///'+image_path+kpi["CODE"]+".png\""+ ' width=300 height=300 >'
 kpi["html_fig_path"] = '<img src="images/'+kpi["CODE"]+".png\"" + ' width=300 height=300 >'
-
-#kpi_def=kpi[["RMSE","html_table","html_fig_path","geometry"]]
 kpi.to_file(output_path+"KPI.gpkg",index=False)
 
 # %% peilgebieden
 col_in_table = ['CODE', 'VASTPEIL','WINTERPEIL', 'ZOMERPEIL', 'FLEXIBEL_B','FLEXIBEL_O']
 list_header = ''.join([f'<th style="background-color:#f2f2f2; text-align:left;">{col}</th>' for col in col_in_table])
-#list_values = ''.join([f'<td>kpi[col]</td>' for col in col_in_table])
 html_table_str = ['<table border="1" cellpadding="5" cellspacing="0" style="width:100%; border-collapse: collapse; border: 1px solid black;"><tr>'+\
     list_header + '</tr><tr>' +\
     '<td>'+r['CODE']+'</td>'+\
